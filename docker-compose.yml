@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  backend:
+    image: backend-image
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/social-network
+    networks:
+      - my-network
+  frontend:
+    image: frontend-image
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "8081:8081"
+    depends_on:
+      - backend
+    networks:
+      - my-network
+    volumes:
+      - ./frontend:/social-network
+
+networks:
+  my-network:
+    

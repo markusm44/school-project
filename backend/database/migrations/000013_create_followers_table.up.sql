@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS "followers" (
+    "userID" INTEGER NOT NULL,
+    "followerIDs" VARBINARY NOT NULL,
+    "followedUsers" VARBINARY NOT NULL,
+    FOREIGN KEY(userId) REFERENCES users (UserID) ON DELETE CASCADE
+);

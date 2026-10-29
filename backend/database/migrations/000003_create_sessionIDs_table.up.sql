@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS `sessionIDs` (
+    `sessionID`  TEXT PRIMARY KEY UNIQUE NOT NULL,
+    `expires`    TEXT NOT NULL,
+    `userID`     INTEGER UNIQUE NOT NULL, 
+    FOREIGN KEY (userID) REFERENCES users (userID) ON DELETE CASCADE
+);
